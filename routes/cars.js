@@ -2,8 +2,26 @@ var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
 
+var cars = [
+  {
+    _id:   0,
+    make:  'Tesla',
+    model: 'S',
+    color: 'black',
+    year:  2014
+  },
+  {
+    _id:   1,
+    make:  'Porsche',
+    model: '911',
+    color: 'silver',
+    year:  2011
+  }
+];
+
 router.get('/', function(request, response) {
-  response.send('Cars index');
+  // response.send('Cars index');
+   response.render('cars/index', { title: 'Cars Index', cars: cars } );
 });
 
 // order matters here, we need new before show
